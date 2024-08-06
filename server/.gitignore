@@ -1,60 +1,45 @@
-# Python bytecode files
 __pycache__/
 *.py[cod]
 
-# Virtual environment
 venv/
 .env
 
-# IDE or editor settings
+Lib/
 .vscode/
 .idea/
 
-# Database files
 *.db
 
-# Logs
 *.log
 
-# Migrations (if using Alembic or similar)
 migrations/
 
-# MyPy
 .mypy_cache/
 .dmypy.json
 .pytype/
 
-# Coverage reports
 .coverage
 coverage.xml
 *.cover
 *.py,cover
 
-# Pytest
 .cache
 nosetests.xml
 coverage.xml
 *.cover
 *.py,cover
 
-# Bandit
 .bandit/
 
-# Typing
 .typings/
 
-# FastAPI specific
 *.sqlite3
 
-# Environment variable files
 .env
 
-# OS-specific files
 .DS_Store
 Thumbs.db
 
-# Pipenv
 Pipfile.lock
 
-# Poetry
 poetry.lock
