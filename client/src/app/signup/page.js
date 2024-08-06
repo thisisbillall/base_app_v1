@@ -6,17 +6,15 @@ import Button from '@/components/Button';
 export default function Signup() {
     return (
         <div className="min-h-screen flex mt-8">
-            {/* Left Column: Large Email Emoji */}
             <div className="flex-1 flex items-center justify-center  p-8">
                 <Image
-                    src="/assets/mail_logo.png"  // Path to your email emoji image
+                    src="/assets/mail_logo.png" 
                     alt="Email Emoji"
-                    width={800}  // Adjust size as needed
-                    height={800} // Adjust size as needed
+                    width={800}  
+                    height={800} 
                 />
             </div>
 
-            {/* Right Column: Signup Form */}
             <div className="flex-1 flex items-center justify-center p-8">
                 <form className="w-full max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
