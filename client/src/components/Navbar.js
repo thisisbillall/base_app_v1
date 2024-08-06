@@ -42,9 +42,12 @@ export default function Navbar() {
                             Sign Up
                         </Button>
                     </Link>
-                    <Button>
+                    <Link href="/login">
+
+                        <Button>
                             Login
-                    </Button>
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </nav>
