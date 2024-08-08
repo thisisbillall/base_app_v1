@@ -139,7 +139,7 @@ export default function Signup() {
                             className="mr-2"
                         />
                         <label htmlFor="termsAndCondition" className="text-sm text-gray-600">
-                            I agree to the <Link href="/terms">terms and conditions</Link>
+                            I agree to the <Link href="/terms"><span className='underline'>Terms of Use</span></Link> and <Link href="/policy"><span className='underline'>Privacy Policy.</span></Link>
                         </label>
                     </div>
 
