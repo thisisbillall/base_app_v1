@@ -13,7 +13,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-white p-4 fixed top-0 left-0 w-full z-50">
+        <nav className="bg-white p-4 fixed top-0 left-0 w-full z-50 shadow-md border-b border-gray-300">
             <div className="flex items-center justify-between max-w-screen-xl mx-auto">
                 <Link href="/" className="flex items-center text-black text-2xl font-bold">
                     <Image
