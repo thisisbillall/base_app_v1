@@ -1,10 +1,12 @@
+from . import models
 from fastapi import FastAPI, Depends, HTTPException
+from .database import engine, SessionLocal
 from sqlalchemy.orm import Session
-from .database import SessionLocal, Base, engine
-from . import crud, schema
-app = FastAPI()
+from typing import Annotated
+from .schemas import UserBase
 
-Base.metadata.create_all(bind=engine)
+app = FastAPI()
+models.Base.metadata.create_all(bind=engine)
 
 def get_db():
     db = SessionLocal()
@@ -13,9 +15,18 @@ def get_db():
     finally:
         db.close()
 
-@app.post("/users/", response_model=schema.UserResponse)
-def create_user(user: schema.UserCreate, db: Session = Depends(get_db)):
-    db_user = crud.get_user(db, user.username)
-    if db_user:
-        raise HTTPException(status_code=400, detail="Username already registered")
-    return crud.create_user(db=db, username=user.username, email=user.email, password=user.password)
+
+db_deependency = Annotated[Session, Depends(get_db)]
+
+
+@app.get('/')
+async def home():
+    return {'msg':'Nice!'}
+
+@app.post('/users/')
+async def create_user(user: UserBase, db: db_deependency):
+    db_user = models.Users(name=user.name, email=user.email, password=user.password)
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user

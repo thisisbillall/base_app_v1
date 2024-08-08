@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Button from '@/components/Button';
 
 export default function Signup() {
+
+    
     return (
         <div className="min-h-screen flex mt-8">
             <div className="flex-1 flex items-center justify-center  p-8">
