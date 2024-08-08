@@ -63,7 +63,7 @@ export default function Signup() {
     };
 
     return (
-        <div className="min-h-screen flex mt-8">
+        <div className="min-h-screen flex mt-12">
             <div className="flex-1 flex items-center justify-center p-8">
                 <Image
                     src="/assets/mail_logo.png"
