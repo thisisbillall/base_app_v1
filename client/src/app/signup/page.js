@@ -56,7 +56,9 @@ export default function Signup() {
                 }
             });
             setSuccess('User created successfully');
-            router.push('/login');
+            setTimeout(() => {
+                router.push('/login');
+            }, 2000);
         } catch (err) {
             setError(err.response?.data?.detail || 'An error occurred');
         }
@@ -64,21 +66,22 @@ export default function Signup() {
 
     return (
         <div className="min-h-screen flex mt-12">
-            <div className="flex-1 flex items-center justify-center p-8">
+            <div className="flex-1 flex flex-col items-center justify-center p-8 bg-transparent">
                 <Image
                     src="/assets/mail_logo.png"
                     alt="Email Emoji"
-                    width={800}
-                    height={800}
+                    width={500}
+                    height={500}
+                    className="mb-0"
                 />
+                <h1 className="text-3xl font-bold text-center mt-[-8px]">AI NATIVE DEBT COLLECTION SYSTEM</h1>
             </div>
-
             <div className="flex-1 flex items-center justify-center p-8">
-                <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg">
+                <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg shadow-gray-500/50 border border-gray-300">
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                     {success && <p style={{ color: 'green' }}>{success}</p>}
                     <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
                         <input
                             type="text"
@@ -90,7 +93,7 @@ export default function Signup() {
                             required
                         />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
                         <input
                             type="email"
@@ -102,7 +105,7 @@ export default function Signup() {
                             required
                         />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
                         <input
                             type="password"
@@ -114,7 +117,7 @@ export default function Signup() {
                             required
                         />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
                         <input
                             type="password"
@@ -126,7 +129,7 @@ export default function Signup() {
                             required
                         />
                     </div>
-                    <div className="mb-4 flex items-center">
+                    <div className="mb-2 flex items-center">
                         <input
                             type="checkbox"
                             id="termsAndCondition"

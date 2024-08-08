@@ -2,9 +2,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Button from '@/components/Button';
+import axios from 'axios';
 
 export default function Login() {
+    
+    const router = useRouter();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,27 +30,32 @@ export default function Login() {
                 }
             });
             setSuccess('logged in successfully');
-            router.push('/home');
+            setTimeout(() => {
+                router.push('/pricing');
+            }, 2000);
         } catch (err) {
+            console.log('err',  err)
             setError(err.response?.data?.detail || 'An error occurred');
         }
     };
 
     return (
         <div className="min-h-screen flex mt-8">
-            <div className="flex-1 flex items-center justify-center  p-8">
+            <div className="flex-1 flex flex-col items-center justify-center p-8 bg-transparent">
                 <Image
                     src="/assets/mail_logo.png"
                     alt="Email Emoji"
-                    width={800}
-                    height={800}
+                    width={500}
+                    height={500}
+                    className="mb-0"
                 />
+                <h1 className="text-3xl font-bold text-center mt-[-8px]">AI NATIVE DEBT COLLECTION SYSTEM</h1>
             </div>
 
 
             <div className="flex-1 flex items-center justify-center p-8">
-                <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg">
-                {error && <p style={{ color: 'red' }}>{error}</p>}
+            <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg shadow-gray-500/50 border border-gray-300">
+            {error && <p style={{ color: 'red' }}>{error}</p>}
                 {success && <p style={{ color: 'green' }}>{success}</p>}
                     <h2 className="text-2xl font-bold mb-4">Login</h2>
 
