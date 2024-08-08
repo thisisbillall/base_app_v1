@@ -43,7 +43,7 @@ export default function Signup() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8000/users/', {
+            const response = await axios.post('http://localhost:8000/signup', {
                 name: signUpData.name,
                 email: signUpData.email,
                 password: signUpData.password
