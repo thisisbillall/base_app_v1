@@ -5,11 +5,11 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/components/Button';
-import axios from 'axios'; 
+import axios from 'axios';
 
 export default function Signup() {
 
-    const router = useRouter();    
+    const router = useRouter();
 
     const [signUpData, setSignUpData] = useState({
         name: '',
@@ -52,7 +52,7 @@ export default function Signup() {
                 password: signUpData.password
             }, {
                 headers: {
-                    'Content-Type': 'application/json', 
+                    'Content-Type': 'application/json',
                 }
             });
             setSuccess('User created successfully');
@@ -74,9 +74,9 @@ export default function Signup() {
             </div>
 
             <div className="flex-1 flex items-center justify-center p-8">
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                {success && <p style={{ color: 'green' }}>{success}</p>}
                 <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg">
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    {success && <p style={{ color: 'green' }}>{success}</p>}
                     <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
                     <div className="mb-4">
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
