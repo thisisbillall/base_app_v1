@@ -1,3 +1,4 @@
+import bcrypt
 from . import models
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -35,7 +36,9 @@ async def home():
 
 @app.post('/users/')
 async def create_user(user: UserBase, db: db_deependency):
-    db_user = models.Users(name=user.name, email=user.email, password=user.password)
+    encription_salt = bcrypt.gensalt()
+    encrypted_password = bcrypt.hashpw(user.password.encode('utf-8'), encription_salt)
+    db_user = models.Users(name=user.name, email=user.email, password=encrypted_password)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
