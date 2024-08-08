@@ -1,12 +1,16 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/components/Button';
 import axios from 'axios'; 
 
 export default function Signup() {
+
+    const router = useRouter();    
+
     const [signUpData, setSignUpData] = useState({
         name: '',
         email: '',
@@ -14,7 +18,6 @@ export default function Signup() {
         confirmPassword: '',
         termsAndCondition: false
     });
-
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -53,6 +56,7 @@ export default function Signup() {
                 }
             });
             setSuccess('User created successfully');
+            router.push('/login');
         } catch (err) {
             setError(err.response?.data?.detail || 'An error occurred');
         }
