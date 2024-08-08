@@ -6,7 +6,7 @@ from .database import engine, SessionLocal
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from typing import Annotated
-from .schemas import UserBase
+from .schemas import UserBase, LoginData
 
 app = FastAPI()
 
@@ -55,3 +55,11 @@ async def create_user(user: UserBase, db: db_dependency):
         raise HTTPException(status_code=400, detail="Error occurred while creating user")
 
     return {"message": "User registered successfully"}
+
+
+@app.post('/login')
+async def login_user(login_data: LoginData, db: db_dependency):
+    user = db.query(models.Users).filter(models.Users.email == login_data.email).first()
+    if user and bcrypt.checkpw(login_data.password.encode('utf-8'), user.password.encode('utf-8')):
+        return {"message": "Login successful"}    
+    raise HTTPException(status_code=400, detail="Invalid email or password")
