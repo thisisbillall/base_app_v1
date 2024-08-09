@@ -5,14 +5,14 @@ import Image from 'next/image';
 export default function About() {
     const founders = [
         {
-            name: 'Founder One',
+            name: 'Varun Bhalla',
             imageSrc: '/assets/varun.jfif', 
-            details: 'Foundes growth and success. With a background in engineering and business management, they bring a wealth of knowledge and a passion for innovation.'
+            details: 'He is a tech sales leader working with lenders on solving their critical business problems uing innovative solutions over 2 decades.'
         },
         {
-            name: 'Founder Two',
+            name: 'Vaibhav Goyal',
             imageSrc: '/assets/vaibhav.jpg',
-            details: 'Founder Two is a visionary leader with expertise in technology and strategy. Their unique approach to problem-solving and commitment to excellence have played a key role in shaping our company’s mission and values.'
+            details: 'He has experience of building deep tech/AI based products for past 2 decades. He is also recognised as Linkedin Top Voice in India.'
         }
     ];
 
